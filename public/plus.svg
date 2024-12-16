@@ -1,0 +1,8 @@
+<!-- <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="20.5263" cy="20" rx="20.5263" ry="20" fill="white"/>
+<path d="M19.3471 21.8333H13.684V18.8788H19.3471V13.3333H22.3425V18.8788H28.0524V21.8333H22.3425V27.3333H19.3471V21.8333Z" fill="#FF6058"/>
+</svg> -->
+<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="15.5" cy="15" r="15" fill="white"/>
+    <path d="M14.6384 16.375H10.5V14.1591H14.6384V10H16.8274V14.1591H21V16.375H16.8274V20.5H14.6384V16.375Z" fill="#17C969"/>
+</svg>
