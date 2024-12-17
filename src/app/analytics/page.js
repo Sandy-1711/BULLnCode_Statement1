@@ -99,9 +99,10 @@ export default function AnalysisPage() {
         { headerName: "Sharpe Ratio", field: "sharpeRatio", sortable: true, filter: true, valueFormatter: params => params.value.toFixed(2) },
     ]);
     const [data, setData] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true);
     async function fetchData() {
         try {
+            setIsLoading(true)
             const files = JSON.parse(localStorage.getItem('files'))
             if (!files) {
                 throw new Error('No files found')
@@ -116,27 +117,43 @@ export default function AnalysisPage() {
         catch (err) {
             toast.error(err.message)
         }
+        finally {
+            setIsLoading(false)
+        }
     }
     useEffect(() => {
+        setIsLoading(true);
         fetchData();
     }, [])
 
     return (
-        <div className=" w-full  h-screen ">
+        <div className=" w-full  h-screen relative ">
+
             <div className="max-w-screen-xl flex flex-col mx-auto h-full">
                 <Header />
-                {/* Cummulative Chart */}
-                <div className="w-1/3 my-4">
-                    <Chart1 />
-                </div>
-                <div className={"ag-theme-alpine flex-1"} style={{ width: '100%' }}>
-                    <AgGridReact
-                        columnDefs={colDefs}
-                        rowData={rowData}
-                    // pagination={true}
-                    // paginationPageSize={5}
-                    />
-                </div>
+                {isLoading ? <Loader /> : <>
+                    <div className=" flex my-4 gap-4">
+                        <div>
+                            <Chart1 />
+                        </div>
+                        <div className="border shadow-md p-5 h-full flex flex-col aspect-square rounded-xl ">
+                            {/* Sharp Ratio */}
+                            <h2 className="p-2 text-xl font-semibold">Sharpe Ratio</h2>
+                            <div className="flex justify-center items-center flex-1">
+                                <h1 className="text-6xl text-right font-semibold">{4}</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className={"ag-theme-alpine flex-1"} style={{ width: '100%' }}>
+                        <AgGridReact
+                            columnDefs={colDefs}
+                            rowData={rowData}
+                        // pagination={true}
+                        // paginationPageSize={5}
+                        />
+                    </div>
+                </>}
             </div>
 
         </div>
@@ -169,4 +186,12 @@ function DrawerOpener() {
             </DrawerFooter>
         </DrawerContent>
     </Drawer>
+}
+function Loader() {
+    return <div className="flex items-center gap-4 justify-center h-full">
+        <span className="loader"></span>
+        <h2 className="text-2xl text-cyan-800 font-sans font-bold">
+            Loading
+        </h2>
+    </div>
 }

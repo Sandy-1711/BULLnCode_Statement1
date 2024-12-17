@@ -15,9 +15,11 @@ export default function Hero() {
 
         <div className="max-w-screen-xl relative z-10 h-full  w-full m-auto">
             <div className="w-full flex gap-10 pt-[30vh]">
-                <div className={"section1 flex-1"}>
-                    <h2 className="text-5xl w-[80%] text-cyan-800 font-sans font-bold">Bull and Code, Hello thereugadhho af</h2>
-                    <p className="text-lg mt-4 ">Lorem ipsum dolor sit amet, conse Porro deserunt corporis quam libero cumque blanditiis, consequuntur ipsam quae mollitia eaque nemo corrupti repellendus, laboriosam debitis culpa.</p>
+                <div className={"section1 flex-1 flex flex-col items-center justify-center"}>
+                    <h2 className="text-5xl w-[80%] text-center text-black font-sans font-extrabold italic">MAXIMIZE YOUR <span className="text-[#05bd80]">RETURNS</span></h2>
+                    <p className="text-lg mt-4 text-center">
+                        Stock.io, Where Data Meets Strategy. Optimize your trades, manage risk, and stay ahead of the markets.
+                    </p>
                     {/* <button onClick={() => { router.push('/analytics') }}><span>Start Now</span></button> */}
                 </div>
                 <div className="flex-1 mt-4">
@@ -63,7 +65,7 @@ export default function Hero() {
                     </FileUploader>
                     {
                         files && files.length > 0 &&
-                        < Button onClick={() => {
+                        <Button onClick={() => {
                             if (fileRef.current.length == 0) {
                                 toast.error('No file selected')
                                 return

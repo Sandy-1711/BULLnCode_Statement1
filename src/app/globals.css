@@ -65,6 +65,23 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'Futura';
+  src: url('/public/futura/Futura\ Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura';
+  /* The name you'll use in your styles */
+  src: url('/public/Futura.ttf') format('truetype');
+  font-weight: normal;
+  /* Adjust as needed */
+  font-style: normal;
+  /* Adjust as needed */
+}
+
 .section1 button {
   margin-top: 0.8rem;
   padding: 0.5rem 1.25rem;
@@ -111,6 +128,26 @@ body {
   color: #fff;
 }
 
+.loader {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #FFF;
+  border-bottom-color: #155E75;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @layer base {
   * {
